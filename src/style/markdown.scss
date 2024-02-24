@@ -1,0 +1,142 @@
+.markdown-body {
+  max-width: 1080px;
+  margin: 0 auto;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-bold);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  a {
+    color: var(--link-color);
+  }
+
+  ul {
+    padding-left: 24px;
+
+    li {
+      text-indent: -4px;
+
+      &::marker {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  ol {
+    padding-left: 24px;
+
+    li {
+      text-indent: -4px;
+    }
+  }
+
+  pre {
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    line-height: 1.25em;
+    background: var(--block-code-back);
+    display: flex;
+
+    > .gutter {
+      display: block;
+      margin: 0;
+      padding: 0.5em;
+      border-right: 1px solid var(--border-color-heavy);
+      line-height: inherit;
+
+      > .line-number {
+        text-align: right;
+        font-size: 100%;
+        display: block;
+
+        &::before {
+          content: attr(data-line);
+        }
+      }
+    }
+
+    > code {
+      display: block;
+      padding: 0.5em;
+      overflow: auto;
+    }
+
+    &::after {
+      content: attr(data-lang);
+      color: var(--lang-color);
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
+  }
+
+  code {
+    font-family: "JetBrains Mono", "Consolas", monospace;
+  }
+
+  :not(pre) code {
+    color: var(--inline-code-color);
+    background: var(--inline-code-back);
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 1px 12px;
+    border-left: 6px solid var(--quote-border-color);
+    background: var(--quote-back-color);
+    color: var(--quote-font-color);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    --cell-padding: 0.5em;
+
+    thead {
+      tr {
+        border-top: 1px solid var(--border-color-heavy);
+        border-bottom: 1px solid var(--border-color-heavy);
+
+        th {
+          padding: var(--cell-padding);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--border-color-normal);
+      }
+
+      td {
+        padding: var(--cell-padding);
+      }
+    }
+  }
+
+  kbd {
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    border-radius: 3px;
+    padding: 1px 6px;
+    box-shadow: 1px 1px 1px var(--kbd-shadow-color);
+    margin: 2px;
+    background: var(--kbd-back);
+    font-weight: var(--font-weight-bold);
+    font-size: small;
+    text-transform: uppercase;
+    color: var(--kbd-color);
+    cursor: pointer;
+  }
+}

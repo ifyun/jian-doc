@@ -1,0 +1,145 @@
+:root {
+  /* markdown body padding */
+  --content-padding: 3em;
+  --font-weight: 400;
+  --font-weight-bold: 500;
+  --font-color: #303030;
+  /* element color */
+  --link-color: #2f81f7;
+  --inline-code-color: #61aeee;
+  --inline-code-back: #fafafa;
+  --block-code-back: #fafafa;
+  --lang-color: #aaaaaa;
+  --quote-border-color: #e0e0e0;
+  --quote-back-color: #f8f8f8;
+  --quote-font-color: #5f5f5f;
+  --kbd-color: #f8f8f8;
+  --kbd-back: #303030;
+  --kbd-shadow-color: #777777;
+  /* scrollbar */
+  --scrollbar-color: #cccccc;
+  --scrollbar-color-hover: #b0b0b0;
+  /* table border */
+  --border-color-normal: #f8f8f8;
+  --border-color-heavy: #f0f0f0;
+}
+
+:root[color-scheme="dark"] {
+  background: #121212;
+  --font-color: #f0f0f0;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 2px;
+
+    &:hover {
+      background: var(--scrollbar-color-hover);
+    }
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-family: "Source Han Sans", sans-serif;
+  font-weight: var(--font-weight);
+  color: var(--font-color);
+}
+
+#side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid var(--border-color-heavy);
+  min-width: 260px;
+  height: 100%;
+  overflow: auto;
+
+  #side-head {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #logo {
+      width: 150px;
+    }
+
+    #name {
+      font-weight: var(--font-weight-bold);
+      margin-bottom: 0;
+    }
+  }
+
+  #menu {
+    align-self: start;
+
+    ul {
+      margin-left: 16px;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        margin-top: 8px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  width: 0;
+
+  #toolbar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 36px;
+    border-bottom: 1px solid var(--border-color-heavy);
+
+    #menu-btn {
+      display: flex;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  #content {
+    padding: 1.5em var(--content-padding);
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+}
