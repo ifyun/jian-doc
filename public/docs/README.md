@@ -17,7 +17,7 @@
         prefix: "docs",
         // 头像文件名
         logo: "logo.svg",
-        // 显示在 avatar 下方
+        // 显示在 logo 下方
         name: "Jian Doc"
       }
     </script>
