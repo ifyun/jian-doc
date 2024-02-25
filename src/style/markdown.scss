@@ -41,42 +41,52 @@
 
   pre {
     font-family: "JetBrains Mono", "Consolas", monospace;
-    line-height: 1.25em;
     background: var(--block-code-back);
     display: flex;
+    flex-direction: column;
 
-    > .gutter {
-      display: block;
-      margin: 0;
-      padding: 0.5em;
-      border-right: 1px solid var(--border-color-heavy);
-      line-height: inherit;
+    > .code-title {
+      display: flex;
+      padding: 0.1em 0.5em;
+      border-bottom: 1px solid var(--border-color-heavy);
 
-      > .line-number {
-        text-align: right;
-        font-size: 100%;
-        display: block;
-
-        &::before {
-          content: attr(data-line);
-        }
+      .language-name {
+        color: var(--line-number-color);
+        font-variant: all-small-caps;
+        margin-left: auto;
       }
     }
 
-    > code {
-      display: block;
-      padding: 0.5em;
-      overflow: auto;
-    }
+    > .code-content {
+      line-height: 1.25em;
+      display: flex;
 
-    &::after {
-      content: attr(data-lang);
-      color: var(--lang-color);
-      position: absolute;
-      top: 0.5em;
-      right: 0.5em;
-      text-transform: uppercase;
-      font-size: 0.8em;
+      > .gutter {
+        display: block;
+        margin: 0;
+        padding: 0.5em;
+        border-right: 1px solid var(--border-color-heavy);
+        line-height: inherit;
+
+        > .line-number {
+          color: var(--line-number-color);
+          text-align: right;
+          font-size: 100%;
+          display: block;
+
+          &::before {
+            content: attr(data-line);
+          }
+        }
+      }
+
+      > code {
+        flex: 1;
+        display: block;
+        padding: 0.5em;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
     }
   }
 
@@ -129,7 +139,7 @@
   kbd {
     font-family: "JetBrains Mono", "Consolas", monospace;
     border-radius: 3px;
-    padding: 1px 6px;
+    padding: 1px 5px;
     box-shadow: 1px 1px 1px var(--kbd-shadow-color);
     margin: 2px;
     background: var(--kbd-back);
