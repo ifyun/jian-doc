@@ -2,6 +2,15 @@ import md from "./plugins"
 
 window.$config = window.$config || {}
 
+function initUI() {
+  const colorScheme = window.localStorage.getItem("color-scheme")
+
+  if (colorScheme === "dark") {
+    document.documentElement.setAttribute("color-scheme", colorScheme)
+    document.querySelector<HTMLInputElement>("#theme-checkbox")!.checked = true
+  }
+}
+
 function toggleMenu() {
   const side = document.getElementById("side")
   if (side?.style.display === "none") {
@@ -11,13 +20,11 @@ function toggleMenu() {
   }
 }
 
-function switchTheme() {
+function toggleTheme(this: HTMLInputElement) {
   const root = document.documentElement
-  if (root.getAttribute("color-scheme") !== "dark") {
-    root.setAttribute("color-scheme", "dark")
-  } else {
-    root.setAttribute("color-scheme", "light")
-  }
+  const colorScheme = this.checked ? "dark" : ""
+  root.setAttribute("color-scheme", colorScheme)
+  window.localStorage.setItem("color-scheme", colorScheme)
 }
 
 /// Get markdown file
@@ -117,7 +124,9 @@ export function init() {
   document.getElementById("name")!.innerHTML = window.$config.name ?? ""
   document.getElementById("menu-btn")?.addEventListener("click", toggleMenu)
   document
-    .getElementById("theme-switch")
-    ?.addEventListener("click", switchTheme)
+    .getElementById("theme-checkbox")
+    ?.addEventListener("change", toggleTheme)
+
+  initUI()
   renderMenu()
 }

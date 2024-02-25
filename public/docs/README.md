@@ -78,17 +78,9 @@
 
 ### 键盘
 
-使用 <kbd>Ctrl</kbd> + <kbd>A</kbd> 全选。
+按下 <kbd>Ctrl</kbd> + <kbd>A</kbd> 全选，<kbd>Alt</kbd> + <kbd>f4</kbd> 关闭窗口。
 
-<div style="text-align: center">
-  <kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd><kbd>T</kbd><kbd>Y</kbd><kbd>U</kbd><kbd>I</kbd><kbd>O</kbd><kbd>P</kbd>
-  <br>
-  <kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd><kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>
-  <br>
-  <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd><kbd>B</kbd><kbd>N</kbd><kbd>M</kbd>
-</div>
-
-### 数学公式(KaTeX)
+### 数学公式
 
 行内公式：$E=mc^2$
 
