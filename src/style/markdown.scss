@@ -47,7 +47,7 @@
 
     > .code-title {
       display: flex;
-      padding: 0.1em 0.5em;
+      padding: 0.1rem 0.5rem;
       border-bottom: 1px solid var(--border-color-heavy);
 
       .language-name {
@@ -58,13 +58,13 @@
     }
 
     > .code-content {
-      line-height: 1.25em;
+      line-height: 1.25rem;
       display: flex;
 
       > .gutter {
         display: block;
         margin: 0;
-        padding: 0.5em;
+        padding: 0.5rem;
         border-right: 1px solid var(--border-color-heavy);
         line-height: inherit;
 
@@ -83,7 +83,7 @@
       > code {
         flex: 1;
         display: block;
-        padding: 0.5em;
+        padding: 0.5rem;
         overflow-y: hidden;
         overflow-x: auto;
       }
@@ -112,7 +112,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    --cell-padding: 0.5em;
+    --cell-padding: 0.5rem;
 
     thead {
       tr {

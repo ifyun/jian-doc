@@ -4,6 +4,7 @@ declare interface Window {
   $config: {
     prefix: string
     logo: string
+    logoRound: boolean
     name: string
   }
 

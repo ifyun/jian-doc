@@ -9,6 +9,10 @@ function initUI() {
     document.documentElement.setAttribute("color-scheme", colorScheme)
     document.querySelector<HTMLInputElement>("#theme-checkbox")!.checked = true
   }
+
+  if (window.$config.logoRound) {
+    document.getElementById("logo")!.style.borderRadius = "50%"
+  }
 }
 
 function toggleMenu() {

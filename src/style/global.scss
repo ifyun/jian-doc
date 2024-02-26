@@ -1,6 +1,6 @@
 :root {
   /* markdown body padding */
-  --content-padding: 3em;
+  --content-padding: 3rem;
   --font-weight: 400;
   --font-weight-bold: 500;
   --font-color: #303030;
@@ -105,7 +105,7 @@ strong {
     }
 
     #name {
-      font-weight: var(--font-weight-bold);
+      font-size: small;
       margin-bottom: 0;
     }
   }
@@ -140,9 +140,9 @@ strong {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    height: 2em;
-    padding-left: 0.25em;
-    padding-right: 1em;
+    height: 2rem;
+    padding-left: 0.25rem;
+    padding-right: 1rem;
     border-bottom: 1px solid var(--border-color-heavy);
 
     #menu-btn {
@@ -173,7 +173,7 @@ strong {
   }
 
   #content {
-    padding: 1.5em var(--content-padding);
+    padding: 1.5rem var(--content-padding);
     overflow: auto;
     scroll-behavior: smooth;
   }
