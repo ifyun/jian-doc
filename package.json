@@ -10,6 +10,7 @@
   "devDependencies": {
     "@types/katex": "^0.16.7",
     "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.11.20",
     "markdown-it": "^14.0.0",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",

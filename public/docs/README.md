@@ -1,4 +1,4 @@
-# Jian Doc - 简单文档
+# Jian Doc · 简单文档
 
 ## 使用
 
@@ -10,15 +10,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Jian Doc</title>
+    <title>My Documents</title>
     <script>
       window.$config = {
-        // 文档相对于 index.html 的位置，不指定则使用根目录
         prefix: "docs",
-        // 头像文件名
         logo: "logo.svg",
-        // 显示在 logo 下方
-        name: "Jian Doc"
+        logoRound: false,
+        name: "My Documents"
       }
     </script>
   </head>
@@ -31,6 +29,23 @@
 
 - `menu.md` 将被渲染为菜单
 - 若不存在 `menu.md`，则将 `README.md` 中的标题渲染为菜单
+
+配置说明：
+
+- `prefix`：文档相对于 `index.html` 的位置，不设置则文档与 `index.html` 位于同一目录
+- `logo`：链接或者相对路径，`prefix` 对该项无效
+
+### 自定义字体/字重
+
+重写 `:root` 的样式：
+
+```css
+:root {
+  --font: "Source Han Sans", sans-serif !important;
+  --font-weight: 300 !important;
+  --font-weight-bold: 500 !important;
+}
+```
 
 ## 扩展
 
