@@ -11,7 +11,7 @@ export const HeadingPlugin = (md: MarkdownIt) => {
     slf: Renderer
   ): string => {
     const title = tokens[index + 1].content
-    tokens[index].attrSet("id", title.replace(/\s*/g, ""))
+    tokens[index].attrSet("id", title)
     return slf.renderToken(tokens, index, options)
   }
 }

@@ -3,9 +3,10 @@
   /* markdown body padding */
   --content-padding: 3rem;
   --font-weight: 300;
-  --font-weight-bold: 500;
+  --font-weight-bold: 400;
   --font-color: #303030;
   /* element color */
+  --active-color: #f7ab1d;
   --link-color: #2f81f7;
   --inline-code-color: #61aeee;
   --inline-code-back: #f8f8fa;
@@ -113,9 +114,10 @@ strong {
 
   #menu {
     align-self: start;
+    margin-top: 1rem;
 
     ul {
-      margin-left: 16px;
+      margin-left: 1.2rem;
       padding: 0;
 
       li {
@@ -127,6 +129,10 @@ strong {
     a {
       text-decoration: none;
       color: inherit;
+
+      &.active {
+        color: var(--active-color);
+      }
     }
   }
 }
@@ -174,7 +180,7 @@ strong {
   }
 
   #content {
-    padding: 1.5rem var(--content-padding);
+    padding: 2rem var(--content-padding);
     overflow: auto;
     scroll-behavior: smooth;
   }
