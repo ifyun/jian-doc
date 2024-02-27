@@ -16,15 +16,20 @@ export function toggleTheme(this: HTMLInputElement) {
   window.localStorage.setItem("color-scheme", colorScheme)
 }
 
-export function menuActive(doc: string, id: string) {
+export function menuActive(data: { doc?: string; id?: string }) {
   document.querySelectorAll("#menu ul a")?.forEach((e) => {
     e.classList.remove("active")
   })
 
-  document.querySelector(`#menu ul a[title="${id}"]`)?.classList.add("active")
-  document
-    .querySelector(`#menu ul a[data-doc="${doc}"]`)
-    ?.classList.add("active")
+  if (data.doc) {
+    document
+      .querySelector(`#menu ul a[data-doc="${data.doc}"]`)
+      ?.classList.add("active")
+  } else if (data.id) {
+    document
+      .querySelector(`#menu ul a[title="${data.id}"]`)
+      ?.classList.add("active")
+  }
 }
 
 export function hashChange(e: HashChangeEvent) {
@@ -33,9 +38,9 @@ export function hashChange(e: HashChangeEvent) {
   const docAndId = url.split("?id=")
 
   if (oldDoc !== docAndId[0] && docAndId[0].trim().length > 0) {
+    menuActive({ doc: docAndId[0] })
     renderContent(docAndId[0])
   } else {
-    const doc = decodeURI(docAndId[0])
     const id = decodeURI(docAndId[1])
     const anchor = document.getElementById(id)
 
@@ -45,6 +50,6 @@ export function hashChange(e: HashChangeEvent) {
         anchor.offsetTop - (anchor.parentNode as HTMLElement).offsetTop
     }
 
-    menuActive(doc, id)
+    menuActive({ id })
   }
 }
