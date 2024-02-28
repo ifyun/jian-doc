@@ -1,20 +1,5 @@
 import md from "./plugins"
-
-function initUI() {
-  const colorScheme = window.localStorage.getItem("color-scheme")
-
-  if (colorScheme === "dark") {
-    document.documentElement.setAttribute("color-scheme", colorScheme)
-    document.querySelector<HTMLInputElement>("#theme-btn")!.checked = true
-  }
-
-  if (window.$config.logoRound) {
-    document.getElementById("logo")!.style.borderRadius = "50%"
-  }
-
-  document.getElementById("logo")?.setAttribute("src", window.$config.logo)
-  document.getElementById("name")!.innerHTML = window.$config.name ?? ""
-}
+import { initUI } from "./event.ts"
 
 /**
  * Request markdown file

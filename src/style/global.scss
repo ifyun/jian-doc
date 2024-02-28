@@ -4,8 +4,9 @@
   /* markdown body padding */
   --content-padding: 3rem;
   --font-weight: 300;
-  --font-weight-bold: 400;
-  --font-color: #303030;
+  --font-weight-bold: 500;
+  --font-color: #3c3c43;
+  --font-color-menu: #3c3c43c7;
   /* element color */
   --active-color: #f7ab1d;
   --link-color: #2f81f7;
@@ -27,13 +28,15 @@
   /* border */
   --border-color-normal: #f8f8f8;
   --border-color-heavy: #f0f0f0;
+  --border-color-code: #f2f2f2;
 }
 
 :root[color-scheme="dark"] {
   background: #1b1b1f;
-  --font-color: #fffff5c0;
-  --inline-code-back: #202023;
-  --block-code-back: #202023;
+  --font-color: #fffff5db;
+  --font-color-menu: #ebebf599;
+  --inline-code-back: #272a2f;
+  --block-code-back: #161618;
   /* quote */
   --quote-border-color: #303030;
   --quote-back-color: #202020;
@@ -46,8 +49,9 @@
   --scrollbar-color: #333333;
   --scrollbar-color-hover: #404040;
   /* border */
-  --border-color-normal: #202020;
-  --border-color-heavy: #282828;
+  --border-color-normal: #202023;
+  --border-color-heavy: #232326;
+  --border-color-code: #191922;
 }
 
 * {
@@ -93,7 +97,7 @@ strong {
   flex-direction: column;
   align-items: center;
   border-right: 1px solid var(--border-color-heavy);
-  min-width: 260px;
+  min-width: 280px;
   height: 100%;
   overflow: auto;
 
@@ -104,8 +108,8 @@ strong {
     align-items: center;
 
     #logo {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
     }
 
     #name {
@@ -117,9 +121,11 @@ strong {
   #menu {
     align-self: start;
     margin-top: 1rem;
+    margin-left: 1.5rem;
+    color: var(--font-color-menu);
 
     ul {
-      margin-left: 1.2rem;
+      margin-left: 1em;
       padding: 0;
 
       li {
@@ -132,8 +138,10 @@ strong {
       text-decoration: none;
       color: inherit;
 
-      &.active {
+      &.active,
+      &:hover {
         color: var(--active-color);
+        transition: all 300ms linear;
       }
     }
   }
@@ -149,12 +157,11 @@ strong {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    height: 2rem;
-    padding-left: 0.25rem;
-    padding-right: 1rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
     border-bottom: 1px solid var(--border-color-heavy);
 
-    #menu-btn {
+    .icon-button {
       display: flex;
       background: none;
       border: none;
@@ -164,20 +171,12 @@ strong {
 
       &:hover {
         opacity: 0.6;
+        transition: all 200ms linear;
       }
     }
 
-    #theme-switch {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: small;
+    #theme-btn {
       margin-left: auto;
-      cursor: pointer;
-
-      > input[type="checkbox"] {
-        cursor: pointer;
-      }
     }
   }
 

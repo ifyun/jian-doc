@@ -30,10 +30,11 @@
 - `menu.md` 将被渲染为菜单
 - 若不存在 `menu.md`，则将 `README.md` 中的标题渲染为菜单
 
-配置说明：
+`window.$config`：
 
-- `prefix`：文档相对于 `index.html` 的位置，不设置则文档与 `index.html` 位于同一目录
-- `logo`：链接或者相对路径，`prefix` 对该项无效
+- `prefix`：文档的相对路径
+- `logo`：链接或者相对路径
+- `logoRound`：是否使用圆角 Logo
 
 ### 自定义字体/字重
 
@@ -76,7 +77,7 @@
 <script src="https://unpkg.com/katex@0.16.9/dist/katex.min.js"></script>
 ```
 
-## 文档示例
+## 文档样式测试
 
 ### 有序列表
 
@@ -86,10 +87,10 @@
 
 ### 表格
 
-| Header  | Header  | Header  |
-| :-----: | :-----: | :-----: |
-| Content | Content | Content |
-| Content | Content | Content |
+| Abandon | Abnormal | Abolish  |
+| :-----: | :------: | :------: |
+|  放弃   |  反常的  | 彻底废除 |
+|   ...   |   ...    |   ...    |
 
 ### 键盘
 

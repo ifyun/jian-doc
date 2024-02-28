@@ -10,7 +10,7 @@ window.$config = window.$config || {}
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#app")!.innerHTML = app
   document.getElementById("menu-btn")?.addEventListener("click", toggleMenu)
-  document.getElementById("theme-btn")?.addEventListener("change", toggleTheme)
+  document.getElementById("theme-btn")?.addEventListener("click", toggleTheme)
   init()
 })
 

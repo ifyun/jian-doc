@@ -1,7 +1,29 @@
 import { renderContent } from "./core.ts"
 
+import lightMode from "./icons/light-mode.svg?raw"
+import darkMode from "./icons/dark-mode.svg?raw"
+
+export function initUI() {
+  const colorScheme = window.localStorage.getItem("color-scheme")
+
+  if (colorScheme === "dark") {
+    document.documentElement.setAttribute("color-scheme", colorScheme)
+    document.getElementById("theme-btn")!.innerHTML = darkMode
+  } else {
+    document.getElementById("theme-btn")!.innerHTML = lightMode
+  }
+
+  if (window.$config.logoRound) {
+    document.getElementById("logo")!.style.borderRadius = "50%"
+  }
+
+  document.getElementById("logo")?.setAttribute("src", window.$config.logo)
+  document.getElementById("name")!.innerHTML = window.$config.name ?? ""
+}
+
 export function toggleMenu() {
   const side = document.getElementById("side")
+
   if (side?.style.display === "none") {
     side?.style.setProperty("display", "flex")
   } else {
@@ -9,11 +31,18 @@ export function toggleMenu() {
   }
 }
 
-export function toggleTheme(this: HTMLInputElement) {
+export function toggleTheme() {
+  const themeButton = document.getElementById("theme-btn")
   const root = document.documentElement
-  const colorScheme = this.checked ? "dark" : ""
+  const colorScheme = root.getAttribute("color-scheme") == "dark" ? "" : "dark"
   root.setAttribute("color-scheme", colorScheme)
   window.localStorage.setItem("color-scheme", colorScheme)
+
+  if (colorScheme === "dark") {
+    themeButton!.innerHTML = darkMode
+  } else {
+    themeButton!.innerHTML = lightMode
+  }
 }
 
 export function menuActive(data: { doc?: string; id?: string }) {
@@ -27,7 +56,7 @@ export function menuActive(data: { doc?: string; id?: string }) {
       ?.classList.add("active")
   } else if (data.id) {
     document
-      .querySelector(`#menu ul a[title="${data.id}"]`)
+      .querySelector(`#menu ul a[data-title="${data.id}"]`)
       ?.classList.add("active")
   }
 }
@@ -45,7 +74,6 @@ export function hashChange(e: HashChangeEvent) {
     const anchor = document.getElementById(id)
 
     if (anchor) {
-      console.log(anchor.offsetTop)
       document.getElementById("content")!.scrollTop =
         anchor.offsetTop - (anchor.parentNode as HTMLElement).offsetTop
     }

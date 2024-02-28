@@ -26,7 +26,7 @@ export const FencePlugin = (md: MarkdownIt) => {
 
       return (
         `<pre>` +
-        `<div class="code-title"><span class="language-name">${info}</span></div>` +
+        `<div class="code-title"><span class="language-name" data-lang="${info}"></span></div>` +
         `<div class="code-content">` +
         `<div class="gutter">${html}</div>` +
         `<code class="hljs">${content}</code>` +

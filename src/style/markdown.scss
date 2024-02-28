@@ -17,6 +17,12 @@
     }
   }
 
+  hr {
+    margin: 2rem 0;
+    color: var(--border-color-heavy);
+    border: 1px solid var(--border-color-heavy);
+  }
+
   a {
     color: var(--link-color);
   }
@@ -26,6 +32,11 @@
 
     li {
       text-indent: -4px;
+      margin-top: 4px;
+
+      &:first-child {
+        margin-top: 0;
+      }
 
       &::marker {
         font-size: 0.8rem;
@@ -50,12 +61,17 @@
     > .code-title {
       display: flex;
       padding: 0.1rem 0.5rem;
-      border-bottom: 1px solid var(--border-color-heavy);
+      border-bottom: 1px solid var(--border-color-code);
 
       .language-name {
         color: var(--line-number-color);
-        font-variant: all-small-caps;
         margin-left: auto;
+
+        &:after {
+          content: attr(data-lang);
+          font-weight: var(--font-weight-bold);
+          font-variant: all-small-caps;
+        }
       }
     }
 
@@ -67,7 +83,7 @@
         display: block;
         margin: 0;
         padding: 0.5rem;
-        border-right: 1px solid var(--border-color-heavy);
+        border-right: 1px solid var(--border-color-code);
         line-height: inherit;
 
         > .line-number {
@@ -86,6 +102,7 @@
         flex: 1;
         display: block;
         padding: 0.5rem;
+        background: inherit;
         overflow-y: hidden;
         overflow-x: auto;
       }
@@ -99,16 +116,19 @@
   :not(pre) code {
     color: var(--inline-code-color);
     background: var(--inline-code-back);
-    padding: 0 4px;
-    border-radius: 2px;
+    padding: 1px 4px;
+    border-radius: 4px;
   }
 
   blockquote {
     margin: 0;
-    padding: 1px 12px;
-    border-left: 6px solid var(--quote-border-color);
-    background: var(--quote-back-color);
+    line-height: 1.5em;
+    border-left: 3px solid var(--quote-border-color);
     color: var(--quote-font-color);
+
+    > p {
+      padding: 0.25em 1em;
+    }
   }
 
   table {
