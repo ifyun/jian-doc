@@ -22,19 +22,29 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="jian-doc.umd.js"></script>
+    <script src="jian-doc.umd.js"></script>
   </body>
 </html>
 ```
 
 - `menu.md` 将被渲染为菜单
-- 若不存在 `menu.md`，则将 `README.md` 中的标题渲染为菜单
+- 若不存在 `menu.md`，`README.md` 中的标题会渲染为菜单
 
 `window.$config`：
 
-- `prefix`：文档的相对路径
-- `logo`：链接或者相对路径
+- `prefix`：如果你想把文档放在子目录而不是和 `index.html` 一起，设置此选项
+- `logo`：链接或者相对路径(`prefix` 不影响此选项)
 - `logoRound`：是否使用圆角 Logo
+
+`menu.md` 示例：
+
+```markdown
+- **UNIX 环境编程**
+  - [文件读写](unixp/文件读写.md)
+  - [Socket](unixp/socket.md)
+- **Web**
+  - [CSS 的黑魔法](web/css_magic.md)
+```
 
 ### 自定义字体/字重
 
@@ -79,6 +89,10 @@
 
 ## 文档样式测试
 
+### 段落
+
+事物的矛盾法则，即对立统一的法则，是唯物辩证法的最根本的法则。列宁说：“就本来的意义讲，辩证法是研究对象的本质自身中的矛盾。”列宁常称这个法则为辩证法的本质，又称之为辩证法的核心。因此，我们在研究这个法则时，不得不涉及广泛的方面，不得不涉及许多的哲学问题。如果我们将这些问题都弄清楚了，我们就在根本上懂得了唯物辩证法。这些问题是：两种宇宙观；矛盾的普遍性；矛盾的特殊性；主要的矛盾和主要的矛盾方面；矛盾诸方面的同一性和斗争性；对抗在矛盾中的地位。
+
 ### 有序列表
 
 1. 独立寒秋
@@ -104,4 +118,14 @@
 
 $$
 y= \begin{cases} x^2, & x>0,\\ x^2 +x-8, & x \le 0 \end{cases}
+$$
+
+$$
+A_{m,n} =
+ \begin{pmatrix}
+  a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+ \end{pmatrix}
 $$

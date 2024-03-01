@@ -25,9 +25,11 @@ export function toggleMenu() {
   const side = document.getElementById("side")
 
   if (side?.style.display === "none") {
-    side?.style.setProperty("display", "flex")
+    side?.style.removeProperty("display")
+    document.getElementById("main")?.style.setProperty("flex-shrink", "0")
   } else {
     side?.style.setProperty("display", "none")
+    document.getElementById("main")?.style.removeProperty("flex-shrink")
   }
 }
 
@@ -45,8 +47,12 @@ export function toggleTheme() {
   }
 }
 
-export function menuActive(data: { doc?: string; id?: string }) {
+function menuActive(data: { doc?: string; id?: string }) {
   document.querySelectorAll("#menu ul a")?.forEach((e) => {
+    e.classList.remove("active")
+  })
+
+  document.querySelectorAll("#nav ul a")?.forEach((e) => {
     e.classList.remove("active")
   })
 
@@ -58,6 +64,19 @@ export function menuActive(data: { doc?: string; id?: string }) {
     document
       .querySelector(`#menu ul a[data-title="${data.id}"]`)
       ?.classList.add("active")
+    document
+      .querySelector(`#nav ul a[data-title="${data.id}"]`)
+      ?.classList.add("active")
+  }
+}
+
+export function widthChange() {
+  document.getElementById("main")?.style.removeProperty("flex-shrink")
+
+  if (window.innerWidth <= 960) {
+    document.getElementById("side")?.style.setProperty("display", "none")
+  } else {
+    document.getElementById("side")?.style.removeProperty("display")
   }
 }
 
@@ -65,6 +84,12 @@ export function hashChange(e: HashChangeEvent) {
   const oldDoc = e.oldURL.split("#")[1]?.split("?")[0]
   const url = e.newURL.split("#")[1]
   const docAndId = url.split("?id=")
+
+  const paddingTop = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--content-padding"
+    )
+  )
 
   if (oldDoc !== docAndId[0] && docAndId[0].trim().length > 0) {
     menuActive({ doc: docAndId[0] })
@@ -75,7 +100,9 @@ export function hashChange(e: HashChangeEvent) {
 
     if (anchor) {
       document.getElementById("content")!.scrollTop =
-        anchor.offsetTop - (anchor.parentNode as HTMLElement).offsetTop
+        anchor.offsetTop -
+        (anchor.parentNode as HTMLElement).offsetTop +
+        paddingTop / 2
     }
 
     menuActive({ id })

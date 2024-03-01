@@ -1,7 +1,6 @@
 .markdown-body {
-  max-width: 900px;
-  margin: 0 auto;
-  line-height: 1.5rem;
+  line-height: 1.5em;
+  padding: 0 2.5em;
 
   h1,
   h2,
@@ -18,7 +17,7 @@
   }
 
   hr {
-    margin: 2rem 0;
+    margin: 2em 0;
     color: var(--border-color-heavy);
     border: 1px solid var(--border-color-heavy);
   }
@@ -39,17 +38,13 @@
       }
 
       &::marker {
-        font-size: 0.8rem;
+        font-size: 0.8em;
       }
     }
   }
 
   ol {
     padding-left: 24px;
-
-    li {
-      text-indent: -4px;
-    }
   }
 
   pre {
@@ -60,7 +55,7 @@
 
     > .code-title {
       display: flex;
-      padding: 0.1rem 0.5rem;
+      padding: 0.1em 0.5em;
       border-bottom: 1px solid var(--border-color-code);
 
       .language-name {
@@ -76,13 +71,13 @@
     }
 
     > .code-content {
-      line-height: 1.3rem;
+      line-height: 1.3em;
       display: flex;
 
       > .gutter {
         display: block;
         margin: 0;
-        padding: 0.5rem;
+        padding: 0.5em;
         border-right: 1px solid var(--border-color-code);
         line-height: inherit;
 
@@ -101,7 +96,7 @@
       > code {
         flex: 1;
         display: block;
-        padding: 0.5rem;
+        padding: 0.5em;
         background: inherit;
         overflow-y: hidden;
         overflow-x: auto;
