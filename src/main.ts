@@ -5,7 +5,7 @@ import "./style/markdown.scss"
 import { hashChange, toggleMenu, toggleTheme, widthChange } from "./event.ts"
 import { throttle } from "lodash"
 
-window.location.href = "/#"
+window.location.href = `./#`
 window.$config = window.$config || {}
 
 document.addEventListener("DOMContentLoaded", () => {

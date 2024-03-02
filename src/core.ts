@@ -9,8 +9,6 @@ function getDoc(docPath: string): Promise<string> {
   if (prefix && prefix.trim().length > 0) {
     if (docPath.startsWith(".")) {
       docPath = docPath.replace(".", prefix)
-    } else if (docPath.startsWith("/")) {
-      docPath = docPath.replace("/", prefix + "/")
     } else {
       docPath = prefix + "/" + docPath
     }
@@ -18,7 +16,7 @@ function getDoc(docPath: string): Promise<string> {
 
   return new Promise<string>((resolve, reject) => {
     const xhr = new XMLHttpRequest()
-    xhr.open("GET", docPath)
+    xhr.open("GET", `./${docPath}`)
     xhr.send()
     xhr.onreadystatechange = function () {
       if (this.readyState === 4) {
@@ -60,7 +58,7 @@ function renderMenuByREADME(menu: Element) {
       }
 
       menu.innerHTML = md.render(menuContent)
-      window.location.replace("#README.md")
+      window.location.replace("./#README.md")
     })
     .catch((err) => {
       menu.innerHTML = err

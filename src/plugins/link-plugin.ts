@@ -17,7 +17,7 @@ export const LinkPlugin = (md: MarkdownIt) => {
     if (!href.startsWith("http://") || !href.startsWith("https://")) {
       tokens[index].attrSet("data-title", title)
       tokens[index].attrSet("data-doc", href)
-      tokens[index].attrSet("href", "#" + href)
+      tokens[index].attrSet("href", `./#${href}`)
     }
 
     return slf.renderToken(tokens, index, options)

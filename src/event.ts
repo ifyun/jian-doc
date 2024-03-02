@@ -52,7 +52,7 @@ function menuActive(data: { doc?: string; id?: string }) {
     e.classList.remove("active")
   })
 
-  document.querySelectorAll("#nav ul a")?.forEach((e) => {
+  document.querySelectorAll(`#nav ul a`)?.forEach((e) => {
     e.classList.remove("active")
   })
 
@@ -60,7 +60,9 @@ function menuActive(data: { doc?: string; id?: string }) {
     document
       .querySelector(`#menu ul a[data-doc="${data.doc}"]`)
       ?.classList.add("active")
-  } else if (data.id) {
+  }
+
+  if (data.id) {
     document
       .querySelector(`#menu ul a[data-title="${data.id}"]`)
       ?.classList.add("active")
@@ -105,6 +107,6 @@ export function hashChange(e: HashChangeEvent) {
         paddingTop / 2
     }
 
-    menuActive({ id })
+    menuActive({ doc: docAndId[0], id })
   }
 }
