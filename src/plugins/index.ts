@@ -1,8 +1,8 @@
 import MarkdownIt from "markdown-it"
-import { MathPlugin } from "./math-plugin.ts"
 import { FencePlugin } from "./fence-plugin.ts"
 import { HeadingPlugin } from "./heading-plugin.ts"
 import { LinkPlugin } from "./link-plugin.ts"
+import { MathPlugin } from "./math-plugin.ts"
 
 const md = new MarkdownIt({
   html: true,

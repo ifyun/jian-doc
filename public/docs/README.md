@@ -2,7 +2,8 @@
 
 ## 使用
 
-- 创建一个 `<div id="app"></div>` 的元素
+- 创建一个 HTML 文件
+- 创建一个 `<div id="app"></div>` 元素
 - 引入 `jian-doc.umd.js`
 
 ```html
@@ -27,12 +28,24 @@
 </html>
 ```
 
-- `menu.md` 将被渲染为菜单
-- 若不存在 `menu.md`，`README.md` 中的标题会渲染为菜单
+根据以上的配置，你的目录结构应该长这样：
+
+```bash
+.
+├─ docs
+│  ├─ introcduction.md
+│  ├─ quick-start.md
+│  └─ menu.md
+├─ index.html
+├─ jian-doc.umd.js
+└─ logo.svg
+```
+
+`menu.md` 将被渲染为菜单，若不存在 `menu.md`，`README.md` 中的标题会渲染为菜单。
 
 `window.$config`：
 
-- `prefix`：如果你想把文档放在子目录而不是和 `index.html` 一起，设置此选项
+- `prefix`：如果你想把文档放在子目录，则设置此选项
 - `logo`：链接或者相对路径(`prefix` 不影响此选项)
 - `logoRound`：是否使用圆角 Logo
 
@@ -46,17 +59,19 @@
   - [CSS 的黑魔法](web/css_magic.md)
 ```
 
-### 自定义字体/字重
+## 重写样式
 
-重写 `:root` 的样式：
+自定义字体/字重：
 
 ```css
 :root {
-  --font: "Source Han Sans", sans-serif !important;
+  --font: "Source Han Sans SC", sans-serif !important;
   --font-weight: 300 !important;
   --font-weight-bold: 500 !important;
 }
 ```
+
+更多的变量可以按 <kbd>F12</kbd> 查看。
 
 ## 扩展
 

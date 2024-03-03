@@ -1,9 +1,9 @@
+import { throttle } from "lodash"
 import app from "./app.html?raw"
 import { init } from "./core"
+import { hashChange, toggleMenu, toggleTheme, widthChange } from "./event.ts"
 import "./style/global.scss"
 import "./style/markdown.scss"
-import { hashChange, toggleMenu, toggleTheme, widthChange } from "./event.ts"
-import { throttle } from "lodash"
 
 window.location.href = `./#`
 window.$config = window.$config || {}

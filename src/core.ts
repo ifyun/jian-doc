@@ -1,5 +1,5 @@
-import md from "./plugins"
 import { initUI } from "./event.ts"
+import md from "./plugins"
 
 /**
  * Request markdown file

@@ -1,7 +1,7 @@
-import StateBlock from "markdown-it/lib/rules_block/state_block"
 import MarkdownIt, { Token } from "markdown-it"
-import Renderer from "markdown-it/lib/renderer"
 import { RuleBlock } from "markdown-it/lib/parser_block"
+import Renderer from "markdown-it/lib/renderer"
+import StateBlock from "markdown-it/lib/rules_block/state_block"
 
 const math_block: RuleBlock = (
   state: StateBlock,

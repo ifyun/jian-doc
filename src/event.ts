@@ -1,7 +1,7 @@
 import { renderContent } from "./core.ts"
 
-import lightMode from "./icons/light-mode.svg?raw"
 import darkMode from "./icons/dark-mode.svg?raw"
+import lightMode from "./icons/light-mode.svg?raw"
 
 export function initUI() {
   const colorScheme = window.localStorage.getItem("color-scheme")
