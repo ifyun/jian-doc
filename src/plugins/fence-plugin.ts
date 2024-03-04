@@ -10,8 +10,8 @@ export const FencePlugin = (md: MarkdownIt) => {
     let content = tokens[index].content
     let info = tokens[index].info
 
-    if (info.trim() === "") {
-      info = "text"
+    if (info === "mermaid") {
+      return `<pre class="mermaid">${content}</pre>`
     }
 
     // Render code and line number

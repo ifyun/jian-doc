@@ -10,4 +10,5 @@ declare interface Window {
 
   hljs: any
   katex: any
+  mermaid: any
 }

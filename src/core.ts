@@ -101,13 +101,26 @@ function renderMenu() {
     })
 }
 
-export function renderContent(path: string) {
+export function renderContent(path: string, rerender: boolean = false) {
+  const colorScheme = window.localStorage.getItem("color-scheme")
   const content = document.querySelector("#content .markdown-body")!
 
   getDoc(path)
     .then((val) => {
       content.innerHTML = md.render(val)
-      setTimeout(() => renderNav(path), 0)
+      setTimeout(() => {
+        if (!rerender) {
+          renderNav(path)
+        }
+
+        window.mermaid.initialize({
+          startOnLoad: false,
+          theme: colorScheme ?? "",
+          themeVariables: { fontSize: 14 }
+        })
+
+        window.mermaid.run()
+      }, 0)
     })
     .catch((err) => {
       content.innerHTML = err

@@ -1,5 +1,6 @@
 :root {
   font-size: 14px;
+  --markdown-font-size: 16px;
   --font: "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
   --background: #ffffff;
   --content-padding: 28px;
@@ -11,7 +12,7 @@
   /* element color */
   --side-color-back: #f8f8fa;
   --active-color: #f7ab1d;
-  --link-color: #2f81f7;
+  --link-color: #5bae50;
   --inline-code-color: #61aeee;
   --inline-code-back: #f8f8fa;
   --block-code-back: #f8f8fa;
@@ -147,8 +148,9 @@ strong {
 
         &.active,
         &:hover {
+          font-weight: var(--font-weight-bold);
           color: var(--active-color);
-          transition: all 300ms linear;
+          transition: all 200ms linear;
         }
       }
     }
@@ -252,8 +254,9 @@ strong {
 
               &.active,
               &:hover {
+                font-weight: var(--font-weight-bold);
                 color: var(--font-color);
-                transition: all 300ms linear;
+                transition: all 200ms linear;
               }
             }
           }

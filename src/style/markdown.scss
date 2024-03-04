@@ -1,4 +1,5 @@
 .markdown-body {
+  font-size: var(--markdown-font-size);
   line-height: 1.5em;
   padding: 0 2.5em;
 
@@ -47,11 +48,17 @@
     padding-left: 24px;
   }
 
+  pre.mermaid {
+    display: flex;
+    align-items: center;
+    background: transparent;
+  }
+
   pre {
-    font-family: "JetBrains Mono", "Consolas", monospace;
-    background: var(--block-code-back);
     display: flex;
     flex-direction: column;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    background: var(--block-code-back);
 
     > .code-title {
       display: flex;
