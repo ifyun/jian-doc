@@ -6,6 +6,8 @@
 - 创建一个 `<div id="app"></div>` 元素
 - 引入 `jian-doc.umd.js`
 
+可以从此处获取：[jian-doc.umd.js](https://ifyun.github.io/jian-doc/jian-doc.umd.js)
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -102,6 +104,19 @@
 <script src="https://unpkg.com/katex@0.16.9/dist/katex.min.js"></script>
 ```
 
+### 图表
+
+引入 `mermaid`，挂载到 `window` 对象：
+
+```html
+<script type="module">
+  import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs"
+  window.mermaid = mermaid
+</script>
+```
+
+代码块语言为 `mermaid` 即可编写图表。
+
 ## 文档样式测试
 
 ### 段落
@@ -144,3 +159,47 @@ A_{m,n} =
   a_{m,1} & a_{m,2} & \cdots & a_{m,n}
  \end{pmatrix}
 $$
+
+### Mermaid
+
+序列图：
+
+```mermaid
+sequenceDiagram
+  participant C as Client
+  participant S as Server
+
+  Note right of S: LISTEN
+  C ->> S : SYN = 1, seq = x
+  Note left of C: SYN_SENT
+  S ->> C : SYN = 1, ACK = 1, seq = y, ack = x + 1
+  Note right of S: SYN_RECV
+  C ->> S : ACK = 1, seq = x + 1, ack = y + 1
+  Note left of C: ESTABLISHED
+  Note right of S: ESTABLISHED
+```
+
+状态图：
+
+```mermaid
+stateDiagram-v2
+  [*] --> NEW
+  NEW --> RUNNABLE: Thread.start()
+
+  state RUNNABLE {
+    RUNNING --> READY
+    READY --> RUNNING
+  }
+
+  RUNNABLE --> BLOCKED: 未获取到锁
+  BLOCKED --> RUNNABLE: 获取到锁
+
+  RUNNABLE --> TIMED_WAITING: Thread.sleep(long)\nObject.wait(long)
+  TIMED_WAITING --> RUNNABLE: Object.notify()
+
+  RUNNABLE --> WAITING: Thread.join()
+  WAITING --> RUNNABLE: Object.notify()
+
+  RUNNABLE --> TERMINATED: 执行完成
+  TERMINATED --> [*]
+```
