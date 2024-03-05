@@ -113,13 +113,14 @@ export function renderContent(path: string, rerender: boolean = false) {
           renderNav(path)
         }
 
-        window.mermaid.initialize({
-          startOnLoad: false,
-          theme: colorScheme ?? "",
-          themeVariables: { fontSize: 14 }
-        })
+        if (window.mermaid) {
+          window.mermaid.initialize({
+            startOnLoad: false,
+            theme: colorScheme ?? ""
+          })
 
-        window.mermaid.run()
+          window.mermaid.run()
+        }
       }, 0)
     })
     .catch((err) => {
