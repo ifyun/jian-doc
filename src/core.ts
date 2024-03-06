@@ -1,4 +1,4 @@
-import { initUI } from "./event.ts"
+import { changeTitle, hashChange, initUI } from "./event.ts"
 import md from "./plugins"
 
 /**
@@ -91,9 +91,16 @@ function renderNav(doc: string) {
  */
 function renderMenu() {
   const menu = document.querySelector("#menu")!
-  getDoc("menu.md")
+
+  getDoc("@menu.md")
     .then((val) => {
       menu.innerHTML = md.render(val)
+      hashChange(
+        new HashChangeEvent("hashchange", {
+          newURL: window.location.hash,
+          oldURL: ""
+        })
+      )
     })
     .catch(() => {
       // No menu.md, read README.md
@@ -108,20 +115,24 @@ export function renderContent(path: string, rerender: boolean = false) {
   getDoc(path)
     .then((val) => {
       content.innerHTML = md.render(val)
-      setTimeout(() => {
-        if (!rerender) {
-          renderNav(path)
-        }
 
-        if (window.mermaid) {
-          window.mermaid.initialize({
-            startOnLoad: false,
-            theme: colorScheme ?? ""
-          })
+      if (!rerender) {
+        changeTitle()
+        renderNav(path)
+      }
 
-          window.mermaid.run()
-        }
-      }, 0)
+      if (window.mermaid) {
+        window.mermaid.initialize({
+          startOnLoad: false,
+          theme: colorScheme ? "dark" : "base",
+          themeVariables: {
+            // Only working for "base"
+            primaryColor: "#f2f5fd"
+          }
+        })
+
+        window.mermaid.run()
+      }
     })
     .catch((err) => {
       content.innerHTML = err

@@ -6,6 +6,7 @@ import { MathPlugin } from "./math-plugin.ts"
 
 const md = new MarkdownIt({
   html: true,
+  linkify: true,
   highlight: function (str: string, language: string) {
     if (language && window.hljs) {
       try {

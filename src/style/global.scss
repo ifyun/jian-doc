@@ -1,7 +1,8 @@
 :root {
   font-size: 14px;
-  --markdown-font-size: 16px;
   --font: "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+  --font-code: "JetBrains Mono", "Consolas", monospace;
+  --markdown-font-size: 16px;
   --background: #ffffff;
   --content-padding: 28px;
   --font-weight: 300;
@@ -13,13 +14,12 @@
   --side-color-back: #f8f8fa;
   --active-color: #f7ab1d;
   --link-color: #5bae50;
-  --inline-code-color: #61aeee;
+  --inline-code-color: #3188d0;
   --inline-code-back: #f8f8fa;
   --block-code-back: #f8f8fa;
   --line-number-color: #5c6370;
   /* quote */
   --quote-border-color: #e0e0e0;
-  --quote-back-color: #f8f8f8;
   --quote-font-color: #5f5f5f;
   /* keyboard */
   --kbd-color: #f8f8f8;
@@ -43,7 +43,6 @@
   --block-code-back: #161618;
   /* quote */
   --quote-border-color: #303030;
-  --quote-back-color: #202020;
   --quote-font-color: #909090;
   /* keyboard */
   --kbd-color: #202020;
@@ -99,8 +98,7 @@ strong {
   #side {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 220px;
+    min-width: 200px;
     padding-left: calc((100vw - var(--layout-max-width)) / 2);
     padding-right: 2.5em;
     height: 100%;
@@ -111,7 +109,9 @@ strong {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 3em;
+      width: fit-content;
+      margin-top: 2.5em;
+      margin-left: 2.5em;
 
       #logo {
         width: 140px;
@@ -119,13 +119,15 @@ strong {
       }
 
       #name {
+        margin-top: 0.25em;
         font-size: small;
         margin-bottom: 0;
       }
     }
 
     #menu {
-      margin-top: 1.5em;
+      margin-top: 1em;
+      margin-left: 3.5em;
       color: var(--font-color-menu);
 
       ul {

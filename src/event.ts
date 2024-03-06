@@ -78,6 +78,11 @@ function menuActive(data: { doc?: string; id?: string }) {
   }
 }
 
+export function changeTitle() {
+  const title = document.querySelector("#content h1")?.innerHTML
+  document.title = `${title} - ${window.$config.name}`
+}
+
 export function widthChange() {
   document.getElementById("main")?.style.removeProperty("flex-shrink")
 
@@ -89,6 +94,7 @@ export function widthChange() {
 }
 
 export function hashChange(e: HashChangeEvent) {
+  const content = document.getElementById("content")
   const oldDoc = e.oldURL.split("#")[1]?.split("?")[0]
   const url = e.newURL.split("#")[1]
   const docAndId = url.split("?id=")
@@ -96,6 +102,7 @@ export function hashChange(e: HashChangeEvent) {
   if (oldDoc !== docAndId[0] && docAndId[0].trim().length > 0) {
     menuActive({ doc: docAndId[0] })
     renderContent(docAndId[0])
+    content!.scrollTop = 0
   } else {
     const id = decodeURI(docAndId[1])
     const anchor = document.getElementById(id)
@@ -103,7 +110,7 @@ export function hashChange(e: HashChangeEvent) {
     if (anchor) {
       const marginTop = getComputedStyle(anchor)["marginTop"]
 
-      document.getElementById("content")!.scrollTop =
+      content!.scrollTop =
         anchor.offsetTop -
         (anchor.parentNode as HTMLElement).offsetTop +
         parseInt(marginTop)

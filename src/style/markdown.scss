@@ -17,6 +17,18 @@
     }
   }
 
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  h3 {
+    font-size: 1.15em;
+  }
+
   hr {
     margin: 2em 0;
     color: var(--border-color-heavy);
@@ -25,6 +37,7 @@
 
   a {
     color: var(--link-color);
+    font-weight: var(--font-weight-bold);
   }
 
   ul {
@@ -57,7 +70,7 @@
   pre {
     display: flex;
     flex-direction: column;
-    font-family: "JetBrains Mono", "Consolas", monospace;
+    font-family: var(--font-code);
     background: var(--block-code-back);
 
     > .code-title {
@@ -115,7 +128,7 @@
     font-family: "JetBrains Mono", "Consolas", monospace;
   }
 
-  :not(pre) code {
+  code:not(.hljs) {
     color: var(--inline-code-color);
     background: var(--inline-code-back);
     padding: 1px 4px;
