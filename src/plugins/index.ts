@@ -4,6 +4,7 @@ import { HeadingPlugin } from "./heading-plugin.ts"
 import { ImgPlugin } from "./img-plugin.ts"
 import { LinkPlugin } from "./link-plugin.ts"
 import { MathPlugin } from "./math-plugin.ts"
+import { TodoPlugin } from "./todo-plugin.ts"
 
 const md = new MarkdownIt({
   html: true,
@@ -22,6 +23,7 @@ const md = new MarkdownIt({
 })
   .use(HeadingPlugin)
   .use(LinkPlugin)
+  .use(TodoPlugin)
   .use(ImgPlugin)
   .use(FencePlugin)
   .use(MathPlugin)

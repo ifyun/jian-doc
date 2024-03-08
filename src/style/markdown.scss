@@ -41,11 +41,11 @@
   }
 
   ul {
-    padding-left: 24px;
+    padding-left: 1.55em;
 
     li {
-      text-indent: -4px;
       margin-top: 4px;
+      text-indent: -0.25em;
 
       &:first-child {
         margin-top: 0;
@@ -53,6 +53,22 @@
 
       &::marker {
         font-size: 0.8em;
+      }
+    }
+
+    li.todo-list {
+      text-indent: 0.25em;
+
+      &::marker {
+        font-size: 1em;
+      }
+
+      &.checked::marker {
+        content: "☑️";
+      }
+
+      &.unchecked::marker {
+        content: "⬜";
       }
     }
   }
@@ -121,6 +137,11 @@
         overflow-y: hidden;
         overflow-x: auto;
       }
+
+      [contenteditable] {
+        outline: none;
+        border: none;
+      }
     }
   }
 
@@ -131,8 +152,8 @@
   code:not(.hljs) {
     color: var(--inline-code-color);
     background: var(--inline-code-back);
-    padding: 1px 4px;
-    border-radius: 4px;
+    padding: 1px 6px;
+    border-radius: 6px;
   }
 
   blockquote {

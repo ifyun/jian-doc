@@ -110,11 +110,11 @@ function renderMenu() {
 
 export function renderContent(path: string, rerender: boolean = false) {
   const colorScheme = window.localStorage.getItem("color-scheme")
-  const content = document.querySelector("#content .markdown-body")!
+  const markdown = document.querySelector("#content .markdown-body")!
 
   getDoc(path)
     .then((val) => {
-      content.innerHTML = md.render(val)
+      markdown.innerHTML = md.render(val)
 
       if (!rerender) {
         changeTitle()
@@ -135,7 +135,7 @@ export function renderContent(path: string, rerender: boolean = false) {
       }
     })
     .catch((err) => {
-      content.innerHTML = err
+      markdown.innerHTML = err
     })
 }
 

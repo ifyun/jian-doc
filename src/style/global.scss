@@ -52,8 +52,8 @@
   --scrollbar-color: #333333;
   --scrollbar-color-hover: #404040;
   /* border */
-  --border-color-normal: #202023;
-  --border-color-heavy: #232326;
+  --border-color-normal: #232326;
+  --border-color-heavy: #262629;
   --border-color-code: #191922;
 }
 
@@ -69,6 +69,7 @@
 
     &:hover {
       background: var(--scrollbar-color-hover);
+      cursor: default;
     }
   }
 }

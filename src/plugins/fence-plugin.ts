@@ -33,7 +33,7 @@ export const FencePlugin = (md: MarkdownIt) => {
         `<div class="code-title"><span class="language-name" data-lang="${info}"></span></div>` +
         `<div class="code-content">` +
         `<div class="gutter">${html}</div>` +
-        `<code class="hljs">${content}</code>` +
+        `<code class="hljs" contenteditable="true" spellcheck="false">${content}</code>` +
         `</div>` +
         `</pre>`
       )

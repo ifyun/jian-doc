@@ -95,14 +95,16 @@ export function widthChange() {
 
 export function hashChange(e: HashChangeEvent) {
   const content = document.getElementById("content")
+  const markdown = document.querySelector("#content .markdown-body")
   const oldDoc = e.oldURL.split("#")[1]?.split("?")[0]
   const url = e.newURL.split("#")[1]
   const docAndId = url.split("?id=")
 
   if (oldDoc !== docAndId[0] && docAndId[0].trim().length > 0) {
+    markdown!.innerHTML = ""
+    content!.scrollTop = 0
     menuActive({ doc: docAndId[0] })
     renderContent(docAndId[0])
-    content!.scrollTop = 0
   } else {
     const id = decodeURI(docAndId[1])
     const anchor = document.getElementById(id)
