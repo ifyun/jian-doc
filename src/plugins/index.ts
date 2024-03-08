@@ -1,6 +1,7 @@
 import MarkdownIt from "markdown-it"
 import { FencePlugin } from "./fence-plugin.ts"
 import { HeadingPlugin } from "./heading-plugin.ts"
+import { ImgPlugin } from "./img-plugin.ts"
 import { LinkPlugin } from "./link-plugin.ts"
 import { MathPlugin } from "./math-plugin.ts"
 
@@ -19,8 +20,9 @@ const md = new MarkdownIt({
     return str
   }
 })
-  .use(LinkPlugin)
   .use(HeadingPlugin)
+  .use(LinkPlugin)
+  .use(ImgPlugin)
   .use(FencePlugin)
   .use(MathPlugin)
 
