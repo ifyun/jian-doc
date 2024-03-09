@@ -20,5 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("theme-btn")?.addEventListener("click", toggleTheme)
 
   init()
-  widthChange()
 })

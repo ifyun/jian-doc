@@ -40,20 +40,15 @@
     font-weight: var(--font-weight-bold);
   }
 
+  ol {
+    padding-left: 1.5em;
+  }
+
   ul {
-    padding-left: 1.55em;
+    padding-left: 1.5em;
 
-    li {
-      margin-top: 4px;
-      text-indent: -0.25em;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &::marker {
-        font-size: 0.8em;
-      }
+    li::marker {
+      font-size: 0.8em;
     }
 
     li.todo-list {
@@ -64,7 +59,7 @@
       }
 
       &.checked::marker {
-        content: "☑️";
+        content: "✅";
       }
 
       &.unchecked::marker {
@@ -73,14 +68,14 @@
     }
   }
 
-  ol {
-    padding-left: 24px;
-  }
-
   pre.mermaid {
     display: flex;
     align-items: center;
     background: transparent;
+
+    > * {
+      width: 100%;
+    }
   }
 
   pre {

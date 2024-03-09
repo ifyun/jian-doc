@@ -1,5 +1,16 @@
-import { changeTitle, hashChange, initUI } from "./event.ts"
+import { changeTitle, hashChange, initUI, widthChange } from "./event.ts"
 import md from "./plugins"
+
+function afterRenderContent() {
+  // Make code block read-only
+  document
+    .querySelectorAll<HTMLElement>(".markdown-body code.hljs")
+    .forEach((e) => {
+      e.addEventListener("beforeinput", function (event) {
+        event.preventDefault()
+      })
+    })
+}
 
 /**
  * Request markdown file
@@ -115,6 +126,8 @@ export function renderContent(path: string, rerender: boolean = false) {
   getDoc(path)
     .then((val) => {
       markdown.innerHTML = md.render(val)
+      afterRenderContent()
+      widthChange()
 
       if (!rerender) {
         changeTitle()
@@ -142,4 +155,5 @@ export function renderContent(path: string, rerender: boolean = false) {
 export function init() {
   initUI()
   renderMenu()
+  widthChange()
 }
