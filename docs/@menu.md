@@ -1,5 +1,5 @@
 - [使用](01.start.md)
 - [扩展](02.extend.md)
-- [样式预览](03.style_preview.md)
-- [主题变量](04.theme_var.md)
+- [样式预览](03.preview.md)
+- [修改颜色主题](04.theme.md)
 - [部署](05.deploy.md)
