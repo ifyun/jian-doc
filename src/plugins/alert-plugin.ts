@@ -6,6 +6,7 @@ import tips from "../icons/tips.svg?raw"
 import important from "../icons/important.svg?raw"
 import warning from "../icons/warning.svg?raw"
 import caution from "../icons/caution.svg?raw"
+import _md from "./common.ts"
 
 const RuleAlert: RuleBlock = (
   state: StateBlock,
@@ -130,7 +131,7 @@ export const AlertPlugin = (md: MarkdownIt) => {
     return (
       `<div class="alert ${info}">` +
       `<p class="title">${icon}${info}</p>` +
-      `<p class="content">${content}</p>` +
+      `<p class="content">${_md.renderInline(content)}</p>` +
       `</div>`
     )
   }

@@ -1,4 +1,5 @@
 import MarkdownIt, { Token } from "markdown-it"
+import _md from "./common.ts"
 
 function isTodo(tokens: Token[], index: number): boolean {
   return (
@@ -30,5 +31,7 @@ export const TodoPlugin = (md: MarkdownIt) => {
     }
   })
 
-  md.renderer.rules.todo = md.renderer.rules.text!.bind(md.renderer.rules)
+  md.renderer.rules.todo = (tokens: Token[], index: number) => {
+    return _md.renderInline(tokens[index].content)
+  }
 }
