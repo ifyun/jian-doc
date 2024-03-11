@@ -12,6 +12,7 @@ function isTodo(tokens: Token[], index: number): boolean {
 export const TodoPlugin = (md: MarkdownIt) => {
   md.core.ruler.after("inline", "todo", (state) => {
     const tokens = state.tokens
+
     for (let i = 0; i < tokens.length; i++) {
       if (isTodo(tokens, i)) {
         tokens[i].type = "todo"

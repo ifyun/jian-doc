@@ -5,6 +5,7 @@ import { ImgPlugin } from "./img-plugin.ts"
 import { LinkPlugin } from "./link-plugin.ts"
 import { MathPlugin } from "./math-plugin.ts"
 import { TodoPlugin } from "./todo-plugin.ts"
+import { AlertPlugin } from "./alert-plugin.ts"
 
 const md = new MarkdownIt({
   html: true,
@@ -26,6 +27,7 @@ const md = new MarkdownIt({
   .use(TodoPlugin)
   .use(ImgPlugin)
   .use(FencePlugin)
+  .use(AlertPlugin)
   .use(MathPlugin)
 
 export default md
