@@ -121,3 +121,15 @@ export function hashChange(e: HashChangeEvent) {
     menuActive({ doc: docAndId[0], id })
   }
 }
+
+export function beforePrint() {
+  // Append a height of A4 to avoid last image partial missing
+  const emptyElement = document.createElement("div")
+  emptyElement.style.height = "297mm"
+  emptyElement.id = "empty-page"
+  document.querySelector(".markdown-body")?.appendChild(emptyElement)
+}
+
+export function afterPrint() {
+  document.getElementById("empty-page")?.remove()
+}

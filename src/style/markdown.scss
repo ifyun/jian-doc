@@ -41,7 +41,7 @@
   }
 
   li {
-    line-height: 1.8em;
+    line-height: 1.6em;
   }
 
   ol {
@@ -107,7 +107,7 @@
     }
 
     > .code-content {
-      line-height: 1.3em;
+      line-height: 1.2em;
       display: flex;
 
       > .gutter {
@@ -131,7 +131,6 @@
 
       > code {
         flex: 1;
-        display: block;
         padding: 0.5em;
         background: inherit;
         overflow-y: hidden;

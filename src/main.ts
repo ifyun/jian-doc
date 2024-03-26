@@ -1,7 +1,14 @@
 import { throttle } from "lodash"
 import app from "./app.html?raw"
 import { init } from "./core"
-import { hashChange, toggleMenu, toggleTheme, widthChange } from "./event.ts"
+import {
+  afterPrint,
+  beforePrint,
+  hashChange,
+  toggleMenu,
+  toggleTheme,
+  widthChange
+} from "./event.ts"
 import "./style/global.scss"
 import "./style/markdown.scss"
 
@@ -13,6 +20,8 @@ if (window.location.hash === "") {
 
 window.addEventListener("resize", throttle(widthChange, 200))
 window.addEventListener("hashchange", hashChange)
+window.addEventListener("beforeprint", beforePrint)
+window.addEventListener("afterprint", afterPrint)
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#app")!.innerHTML = app
