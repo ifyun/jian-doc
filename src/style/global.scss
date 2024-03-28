@@ -314,10 +314,19 @@ strong {
     .markdown-body {
       padding: 0 !important;
       max-width: 100% !important;
-      font-size: 16px;
+      font-size: 16px !important;
+
+      .gutter {
+        display: none !important;
+      }
 
       .code-content {
-        font-size: 14px;
+        font-size: 14px !important;
+
+        code.hljs {
+          white-space: pre-wrap !important;
+          word-break: break-all !important;
+        }
       }
     }
   }
