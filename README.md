@@ -1,6 +1,7 @@
 # Jian Doc·简单文档
 
 ![GitHub Actions](https://img.shields.io/github/actions/workflow/status/ifyun/jian-doc/vite.yml?logo=github)
+![GitHub Deploy](https://img.shields.io/github/deployments/ifyun/jian-doc/github-pages?logo=github&label=deploy)
 
 Jian Doc 是一个轻量文档框架，使用 `Vite` 和 `VanillaJS` 构建。
 

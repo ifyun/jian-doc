@@ -14,7 +14,6 @@
   --side-color-back: #f8f8fa;
   --active-color: #f7ab1d;
   --link-color: #5bae50;
-  --inline-code-color: #8b929f;
   --inline-code-back: #f8f8fa;
   --block-code-back: #f8f8fa;
   --line-number-color: #5c6370;
@@ -39,11 +38,16 @@
   --color-caution: #f85149;
 }
 
+:root:not([color-schema="dark"]) {
+  --code-color: #72727f;
+}
+
 :root[color-scheme="dark"] {
   --background: #1b1b1f;
   --font-color: #fffff5db;
   --font-color-menu: #ebebf599;
   --side-color-back: #161618;
+  --code-color: #8b929f;
   --inline-code-back: #272a2f;
   --block-code-back: #161618;
   /* quote */

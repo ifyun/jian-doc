@@ -146,10 +146,10 @@
 
   code {
     font-family: "JetBrains Mono", "Consolas", monospace;
+    color: var(--code-color);
   }
 
   code:not(.hljs) {
-    color: var(--inline-code-color);
     background: var(--inline-code-back);
     padding: 1px 6px;
     border-radius: 6px;
