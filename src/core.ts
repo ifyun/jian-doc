@@ -12,6 +12,26 @@ function afterRenderContent() {
     })
 }
 
+function afterRenderMenu() {
+  const ulArr = document.querySelectorAll<HTMLUListElement>("#menu ul")
+
+  ulArr.forEach((ul) => {
+    if (ul.parentElement?.nodeName === "LI") {
+      ul.style.setProperty("display", "none")
+      const expanded = ul.parentElement.firstElementChild as HTMLElement
+      expanded.classList.add("expended")
+      expanded.style.setProperty("cursor", "pointer")
+      expanded.addEventListener("click", () => {
+        if (ul.style.getPropertyValue("display")) {
+          ul.style.removeProperty("display")
+        } else {
+          ul.style.setProperty("display", "none")
+        }
+      })
+    }
+  })
+}
+
 /**
  * Request markdown file
  */
@@ -117,6 +137,7 @@ function renderMenu() {
       // No menu.md, read README.md
       renderMenuByREADME(menu)
     })
+    .finally(() => afterRenderMenu())
 }
 
 export function renderContent(path: string, rerender: boolean = false) {

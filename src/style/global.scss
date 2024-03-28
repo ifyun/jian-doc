@@ -12,7 +12,7 @@
   --layout-max-width: 1440px;
   /* element color */
   --side-color-back: #f8f8fa;
-  --active-color: #f7ab1d;
+  --active-color: #3fb950;
   --link-color: #5bae50;
   --inline-code-back: #f8f8fa;
   --block-code-back: #f8f8fa;
@@ -108,7 +108,7 @@ strong {
   #side {
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+    min-width: 220px;
     padding-left: calc((100vw - var(--layout-max-width)) / 2);
     padding-right: 2.5em;
     height: 100%;
@@ -152,6 +152,16 @@ strong {
           list-style-type: none;
           margin-top: 8px;
           white-space: nowrap;
+
+          .expended {
+            &::before {
+              content: "[";
+            }
+
+            &::after {
+              content: "]";
+            }
+          }
         }
       }
 
